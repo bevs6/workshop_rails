@@ -7,7 +7,6 @@ ruby '2.3.4'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 
-endbundle install --without production
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -44,9 +43,9 @@ group :development, :test do
 end
 
 
-  group :production do
+group :production do
     gem 'pg'
-end
+  end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

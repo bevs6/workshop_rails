@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+
   end
 
   # GET /topics/new
@@ -60,6 +61,13 @@ class TopicsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  #TODO Refractor - move to separate controller
+  def upvote
+  @topic = Topic.find(params[:id])
+  @topic.votes.create
+  redirect_to(topics_path)
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
