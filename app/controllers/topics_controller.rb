@@ -1,10 +1,11 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /topics
   # GET /topics.json
   def index
     @topics = Topic.all
+    @ordenados=@topics.sort{|a,b| a.votes.count <=>b.votes.count}
   end
 
   # GET /topics/1
